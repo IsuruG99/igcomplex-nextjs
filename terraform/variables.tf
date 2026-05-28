@@ -1,32 +1,32 @@
 variable "vercel_api_token" {
-    sensitive = true
+  sensitive = true
 }
 
 variable "project_name" {
-    default = "IG Complex"
+  default = "igcomplex"
 }
 
 variable "supabase_url" {
-    sensitive = true
+  sensitive = true
 }
 
 variable "supabase_anon_key" {
-    sensitive = true
+  sensitive = true
 }
 
 variable "supabase_service_key" {
-    sensitive = true
+  sensitive = true
 }
 
 variable "owner_username" {
-    sensitive = true
+  sensitive = true
 }
 
 variable "owner_password_hash" {
-    description = "Bcrypted Hash"
-    sensitive = true
+  description = "Bcrypted Hash"
+  sensitive   = true
 }
 
 variable "owner_session_secret" {
-    sensitive = true
+  sensitive = true
 }
