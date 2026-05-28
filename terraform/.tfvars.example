@@ -1,0 +1,8 @@
+# terraform/terraform.tfvars.example
+vercel_api_token      = "vcp_xxx"
+supabase_url          = "https://yourproject.supabase.co"
+supabase_anon_key     = "sb_publishable_xxx"
+supabase_service_key  = "sb_secret_xxx"
+owner_username        = "admin"
+owner_password_hash   = "$2a$01$xxx"
+owner_session_secret = "somelongstring"
