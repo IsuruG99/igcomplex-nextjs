@@ -1,5 +1,4 @@
 type AppEnv = {
-  databaseUrl: string;
   nextPublicCvUrl: string;
   nextPublicSiteUrl: string;
   nextPublicSupabaseAnonKey: string;
@@ -8,19 +7,7 @@ type AppEnv = {
   storageBuckets: {
     media: string;
   };
-  workspaceAccess: {
-    allowedEmails: string[];
-    allowedRoles: string[];
-    allowedUserIds: string[];
-  };
 };
-
-function parseEnvList(value: string | undefined) {
-  return String(value ?? "")
-    .split(/[\n,]/)
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
 
 function normalizeSupabaseUrl(value: string | undefined) {
   const rawValue = String(value ?? "").trim();
@@ -44,7 +31,6 @@ function normalizeSupabaseUrl(value: string | undefined) {
 }
 
 export const appEnv: AppEnv = {
-  databaseUrl: process.env.DATABASE_URL ?? "",
   nextPublicCvUrl: process.env.NEXT_PUBLIC_CV_URL ?? "",
   nextPublicSiteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   nextPublicSupabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
@@ -52,11 +38,6 @@ export const appEnv: AppEnv = {
   supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY ?? "",
   storageBuckets: {
     media: process.env.SUPABASE_STORAGE_BUCKET_MEDIA ?? "media",
-  },
-  workspaceAccess: {
-    allowedEmails: parseEnvList(process.env.WORKSPACE_ALLOWED_EMAILS).map((item) => item.toLowerCase()),
-    allowedRoles: parseEnvList(process.env.WORKSPACE_ALLOWED_ROLES).map((item) => item.toLowerCase()),
-    allowedUserIds: parseEnvList(process.env.WORKSPACE_ALLOWED_USER_IDS).map((item) => item.toLowerCase()),
   },
 };
 
@@ -67,3 +48,12 @@ export function hasOwnerAuthEnv() {
     String(process.env.OWNER_SESSION_SECRET ?? "").trim().length >= 16
   );
 }
+
+export function hasSupabasePublicEnv() {
+  return appEnv.nextPublicSupabaseUrl.length > 0 && appEnv.nextPublicSupabaseAnonKey.length > 0;
+}
+
+export function hasSupabaseServiceRoleEnv() {
+  return hasSupabasePublicEnv() && appEnv.supabaseServiceRoleKey.length > 0;
+}
+

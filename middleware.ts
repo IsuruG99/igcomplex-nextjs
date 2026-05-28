@@ -1,7 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { hasSupabasePublicEnv } from "./src/lib/env";
 import { parseOwnerSession, ownerSessionCookieName } from "./src/lib/owner-auth";
 
 function buildLoginUrl(request: NextRequest, message?: string) {
@@ -31,14 +30,6 @@ export async function middleware(request: NextRequest) {
   if (isLoginPath && owner) {
     const nextPath = request.nextUrl.searchParams.get("next") ?? "/workspace";
     return NextResponse.redirect(new URL(nextPath, request.url));
-  }
-
-  // Still need Supabase for public content reads on protected pages (hub etc.)
-  if (!hasSupabasePublicEnv()) {
-    if (isProtectedPath) {
-      return NextResponse.redirect(buildLoginUrl(request, "auth-not-configured"));
-    }
-    return NextResponse.next();
   }
 
   return NextResponse.next();
