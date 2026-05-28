@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    init: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app           # Bind mount source code
+      - /app/node_modules # Anonymous volume - CRITICAL
+      - /app/.next        # Preserve build cache
+    environment:
+      WATCHPACK_POLLING: "true"  # Required for macOS/Windows hot reload
+      NODE_ENV: development
