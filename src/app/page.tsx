@@ -58,8 +58,8 @@ export default function HomePage() {
       <div className="home-sections">
         <section className="card home-section">
           <div className="home-section__header">
-            <p className="label label-teal">CURRENT FOCUS</p>
-            <h2 className="headline home-section__title">What I am working on</h2>
+            <p className="label label-teal">What I am working on</p>
+            <h2 className="headline home-section__title">CURRENT FOCUS</h2>
           </div>
           <div className="home-focus-list">
             {siteProfile.goals.map((item) => (
@@ -74,13 +74,13 @@ export default function HomePage() {
         <section className="card home-section home-section--aside">
           <div className="home-section__header">
             <p className="label label-red">MY JOURNEY</p>
-            <h2 className="headline home-section__title">Blog, Experiences</h2>
+            <h2 className="headline home-section__title">Navigation</h2>
           </div>
-          <p className="text-secondary">Concise updates, portfolio notes, and a small signed-in tracker when needed.</p>
+          <p className="text-secondary">Updates from Career, Projects & Other.</p>
           <div className="home-section__links">
             <Link href="/blog">Blog</Link>
-            <Link href="/projects">Project archive</Link>
-            <Link href="/login">Sign in</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/cv">CV</Link>
           </div>
         </section>
       </div>
