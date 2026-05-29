@@ -26,16 +26,21 @@ export default function HomePage() {
           <div className="home-lead__stats">
             <div className="home-stat">
               <span className="label">Focus</span>
-              <p>{siteProfile.heroText}</p>
+              <p>Databases</p>
+              <p>Terraform</p>
+              <p>System Design</p>
             </div>
             <div className="home-stat">
               <span className="label">Environment</span>
-              <p>{siteProfile.heroSubtext}</p>
+              <p>Arch Linux</p>
+              <p>Hyprland DE</p>
+              <p>Neovim / VSCode </p>
             </div>
             <div className="home-stat home-stat--accent">
               <span className="label">Current Status</span>
-              <p>{siteProfile.status}</p>
-              <span className="text-secondary">{siteProfile.statusSubtext}</span>
+              <p>Seeking</p>
+              <span className="text-secondary">Internship</span>
+              <span className="text-secondary">DevOps / Backend</span>
             </div>
           </div>
         </div>
@@ -47,10 +52,8 @@ export default function HomePage() {
           <div className="home-profile__meta">
             <p className="breadcrumb">{siteProfile.welcomeLabel}</p>
             <h2 className="headline accent-red home-profile__title">IGComplex</h2>
-            <p className="text-secondary">
-              Built around readable systems, small delivery slices, and a public-facing presentation that does not
-              need a heavyweight backend to stay useful.
-            </p>
+            <p className="text-secondary">NextJS 16 | TypeScript | Supabase S3</p>
+            <p className="text-secondary">Terraform Vercel Hosting (For Learning)</p>
           </div>
         </div>
       </section>

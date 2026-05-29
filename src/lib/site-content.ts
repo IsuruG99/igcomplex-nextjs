@@ -193,11 +193,11 @@ export const academicHistory: HistoryEntry[] = [
 export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
-    items: ["Python / Django", "TypeScript / Node.js", "C# / .NET"],
+    items: ["Python / Django", "NodeJS / NextJS", "C# / .NET MAUI"],
   },
   {
     title: "Infrastructure",
-    items: ["PostgreSQL / Redis", "Docker / Git", "AWS / Linux"],
+    items: ["PostgreSQL / MongoDB", "Docker / Terraform", "AWS / Supabase"],
   },
 ];
 
