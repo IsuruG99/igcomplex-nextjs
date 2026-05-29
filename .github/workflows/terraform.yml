@@ -11,6 +11,14 @@ jobs:
         name: 'Terraform'
         runs-on: ubuntu-latest
         # environment: production
+        env:
+            TF_VAR_vercel_api_token: ${{ secrets.VERCEL_API_TOKEN }}
+            TF_VAR_supabase_url: ${{ secrets.SUPABASE_URL }}
+            TF_VAR_supabase_anon_key: ${{ secrets.SUPABASE_ANON_KEY }}
+            TF_VAR_supabase_service_key: ${{ secrets.SUPABASE_SERVICE_KEY }}
+            TF_VAR_owner_username: ${{ secrets.OWNER_USERNAME }}
+            TF_VAR_owner_password_hash: ${{ secrets.OWNER_PASSWORD_HASH}}
+            TF_VAR_owner_session_secret: ${{ secrets.OWNER_SESSION_SECRET }}
         defaults:
                 run:
                     shell: bash
